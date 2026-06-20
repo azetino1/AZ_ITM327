@@ -79,3 +79,5 @@ def run_weather_test():
         logger.error(f"❌ API Connection failed: {e}")
 
    
+if __name__ == "__main__":
+    run_weather_test()
