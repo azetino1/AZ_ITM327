@@ -1,3 +1,7 @@
+from airflow.sdk import DAG
+
+dag = None
+
 import pandas as pd
 import re
 import snowflake.connector
