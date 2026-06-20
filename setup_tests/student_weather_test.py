@@ -78,27 +78,4 @@ def run_weather_test():
     except Exception as e:
         logger.error(f"❌ API Connection failed: {e}")
 
-    default_args = {
-    "owner": "Alvaro Zetino",
-    "depends_on_past": False,
-    "retries": 1,
-    "retry_delay": timedelta(minutes=5),
-}
-
-with DAG(
-    dag_id="Weather_API_DAG",
-    default_args=default_args,
-    description="Pull weather data from Open-Meteo API daily",
-    start_date=datetime(2026, 1, 12),  # change this to first day of semester
-    schedule_interval="@daily",
-    catchup=True,
-    tags=["weather", "api"],
-) as dag:
-
-    pull_weather_data = PythonOperator(
-        task_id="pull_weather_data",
-        python_callable=run_weather_test,
-    )
-
-
-
+   
