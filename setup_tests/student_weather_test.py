@@ -79,7 +79,7 @@ def run_weather_test():
         logger.error(f"❌ API Connection failed: {e}")
 
     default_args = {
-    "owner": "alvaro",
+    "owner": "Alvaro Zetino",
     "depends_on_past": False,
     "retries": 1,
     "retry_delay": timedelta(minutes=5),
