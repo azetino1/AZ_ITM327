@@ -4,6 +4,8 @@ import sys
 import logging
 from datetime import datetime, timedelta
 
+
+
 # you may need to install these packages in your environment:
 # pip install git+https://github.com/m0rp43us/openmeteopy
 
@@ -76,5 +78,27 @@ def run_weather_test():
     except Exception as e:
         logger.error(f"❌ API Connection failed: {e}")
 
-if __name__ == "__main__":
-    run_weather_test()
+    default_args = {
+    "owner": "alvaro",
+    "depends_on_past": False,
+    "retries": 1,
+    "retry_delay": timedelta(minutes=5),
+}
+
+with DAG(
+    dag_id="Weather_API_DAG",
+    default_args=default_args,
+    description="Pull weather data from Open-Meteo API daily",
+    start_date=datetime(2026, 1, 12),  # change this to first day of semester
+    schedule_interval="@daily",
+    catchup=True,
+    tags=["weather", "api"],
+) as dag:
+
+    pull_weather_data = PythonOperator(
+        task_id="pull_weather_data",
+        python_callable=run_weather_test,
+    )
+
+
+
