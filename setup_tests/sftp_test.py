@@ -9,7 +9,7 @@ import paramiko
 # pip install paramiko==3.5.1 python-dotenv sshtunnel==0.4.0
 
 # Load env
-load_dotenv("/opt/airflow/.env")
+load_dotenv("../.env")
 
 
 SFTP_HOST = os.getenv("SFTP_HOST")
@@ -86,4 +86,3 @@ for attempt in range(2):
         else:
             logger.error("❌ Failed to upload after retries.")
 
-#%%
