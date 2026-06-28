@@ -9,12 +9,13 @@ import paramiko
 # pip install paramiko==3.5.1 python-dotenv sshtunnel==0.4.0
 
 # Load env
-load_dotenv("../.env")
+load_dotenv("/opt/airflow/.env")
+
 
 SFTP_HOST = os.getenv("SFTP_HOST")
 SFTP_PORT = int(os.getenv("SFTP_PORT"))
 # SFTP_PORT = 219
-SFTP_USER = os.getenv("SFTP_USER")
+SFTP_USER = os.getenv("")
 SFTP_PASSWORD = os.getenv("SFTP_PASSWORD")
 SFTP_DIR = os.getenv("SFTP_DIR")
 LOCAL_FILE = "example.csv"
