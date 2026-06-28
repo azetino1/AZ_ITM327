@@ -15,7 +15,7 @@ load_dotenv("/opt/airflow/.env")
 SFTP_HOST = os.getenv("SFTP_HOST")
 SFTP_PORT = int(os.getenv("SFTP_PORT"))
 # SFTP_PORT = 219
-SFTP_USER = os.getenv("true")
+SFTP_USER = os.getenv("SFTP_USER")
 SFTP_PASSWORD = os.getenv("SFTP_PASSWORD")
 SFTP_DIR = os.getenv("SFTP_DIR")
 LOCAL_FILE = "example.csv"
