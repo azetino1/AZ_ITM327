@@ -111,6 +111,7 @@ def get_mongo_client(local_port=None):
     host = "127.0.0.1" if local_port else os.getenv("MONGO_HOST")
     port = local_port or int(os.getenv("MONGO_PORT", 27017))
     user = os.getenv("MONGO_USER")
+    password = os.getenv("MONGO_PASSWORD")
     password = quote_plus(password)  # URL-encode the password
     auth_db = os.getenv("MONGO_DB", "admin")
 
